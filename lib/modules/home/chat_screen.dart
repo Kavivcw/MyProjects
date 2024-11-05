@@ -31,7 +31,7 @@ class _chatScreenState extends State<chatScreen> {
     ChatMessage(messageContent: "Hello,", messageType: "receiver"),
     ChatMessage(messageContent: "How have you been?", messageType: "receiver"),
     ChatMessage(messageContent: "Hey Kriss, I am doing fine dude. how r u?", messageType: "sender"),
-    ChatMessage(messageContent: "ehhhh, doing OK.", messageType: "receiver"),
+    ChatMessage(messageContent: "eh, doing OK.", messageType: "receiver"),
     ChatMessage(messageContent: "Is there any thing wrong?", messageType: "sender"),
   ];
 
