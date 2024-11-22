@@ -19,7 +19,6 @@ import 'package:sparebess/views/app_button.dart';
 import 'package:sparebess/views/rx_status_view/rx_status_view1.dart';
 import 'package:sparebess/views/wishlist_button.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-
 import '../../../views/dot_indicator.dart';
 import '../../../views/web_image_view.dart';
 import '../../cart/cart_screen.dart';
@@ -154,8 +153,6 @@ class ProductDetailScreen extends StatelessWidget {
     );
   }
 }
-
-
 
 class ProductDetailTabButton extends StatelessWidget {
   const ProductDetailTabButton(
@@ -444,7 +441,6 @@ class _ProductDetailViewState extends State<ProductDetailView> {
 
 }
 
-
 class ProductDetailSocialMediaView extends StatelessWidget {
   ProductDetailSocialMediaView({super.key});
 
@@ -496,6 +492,7 @@ class ProductDetailSocialMediaView extends StatelessWidget {
     );
   }
 }
+
 class ProductSpecificationView extends StatelessWidget {
   ProductSpecificationView({super.key});
 
@@ -557,7 +554,6 @@ class ProductDescriptionView extends StatelessWidget {
   }
 }
 
-
 class ProductRatingOverView extends StatefulWidget {
 
 
@@ -571,6 +567,7 @@ class _ProductRatingOverViewState extends State<ProductRatingOverView> {
   final VMProductDetail data = Get.find();
   late final List<MProductDetail> relatedProd;
   bool relatedProductprogress=false;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -667,18 +664,15 @@ class _ProductRatingOverViewState extends State<ProductRatingOverView> {
             // margin: EdgeInsets.symmetric(horizontal: hSpace),
             height: MediaQuery.of(context).size.height*0.25,
             margin: const EdgeInsets.only(right: 0, left: 0, top: 1,bottom: 10),
-
             padding: const EdgeInsets.all(6),
             decoration: BoxDecoration(
               color: HexColor('#f1f1f1'),
               borderRadius: BorderRadius.circular(10),
             ),
             child: GridView.builder(
-
               scrollDirection: Axis.horizontal,
               physics: const AlwaysScrollableScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-
                 crossAxisCount: 1,
                 crossAxisSpacing: 0,
                 childAspectRatio: 1,
@@ -691,7 +685,6 @@ class _ProductRatingOverViewState extends State<ProductRatingOverView> {
                   onTap: () {
                     setState(() {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => RelatedproductDetailScreen(
-
                           relatedProd[index].id,
                           relatedProd[index].productName,
                           relatedProd[index].images,
@@ -706,7 +699,6 @@ class _ProductRatingOverViewState extends State<ProductRatingOverView> {
                           relatedProd[index].variant,
                           relatedProd[index].weight,
                           relatedProd[index].weightClass,
-
                       )));
                        });
                   },
@@ -729,7 +721,6 @@ class _ProductRatingOverViewState extends State<ProductRatingOverView> {
       });
       final SharedPreferences tokenprefs = await SharedPreferences.getInstance();
       String url = "https://api.sparewares.com/product/searchProduct?category=${data.product.value!.category}";
-
       http.Response response = await http.get(
         Uri.parse(url),
         headers: {
@@ -745,6 +736,7 @@ class _ProductRatingOverViewState extends State<ProductRatingOverView> {
             var resultsList=results['data'] as List;
             relatedProd = resultsList.map((taskJson) => MProductDetail.fromJson(taskJson)).toList();
             relatedProductprogress=false;
+            print(relatedProd[0].productName);
           }
         }
       });
@@ -833,9 +825,9 @@ class RelatedProductGridItemView extends StatelessWidget {
                 TextSpan(
                   text:
                   '  ${((1.0 - (data.price / data .mrp)) * 100).toStringAsFixed(0)}% OFF',
-                  style: const TextStyle(
+                      style: const TextStyle(
                       color: Colors.green,
-                      fontSize: 10
+                      fontSize: 11
                   ),
                 ),
               ],

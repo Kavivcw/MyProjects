@@ -27,6 +27,7 @@ final logger = Logger(
     printEmojis: false,
   ),
 );
+
 const appName = 'SpareWares';
 const websiteName = 'sparewares.com';
 
@@ -50,8 +51,7 @@ EdgeInsets get safeArea {
 
 extension GetExt on GetInterface {
   popTo(String name) {
-    Navigator.of(Get.context!)
-        .popUntil((route) => route.settings.name == '/$name');
+    Navigator.of(Get.context!).popUntil((route) => route.settings.name == '/$name');
   }
 
   popToRoot() {
@@ -94,7 +94,6 @@ class LoadingState {
   set value(RxStatus newStatus) {
     rxStatusDebounce.call(() {
       state.value = newStatus;
-
     });
   }
 }
